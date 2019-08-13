@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AACA,OAAO,CAAC,2EAAI,CCCZ,AAAA,OAAO,AAAA,CACH,OAAO,CAAE,IAAI,CAChB",
+    "sources": [
+        "../scss/main.scss",
+        "../scss/layout/_grid.scss"
+    ],
+    "names": [],
+    "file": "main.min.css"
+}
