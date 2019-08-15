@@ -1,0 +1,157 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+.login-section{
+    width: 100vw;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    text-align: center;
+    margin: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: $secundari;
+    transition: transform 0.6s;
+    h1{
+        margin-top: 30%;
+        font-size: 60px;
+        color: $corporative-color;
+        margin-bottom: 15px;
+    }
+    p{
+        text-align: center;
+        margin-right: 10px;
+        margin-top: 10px;
+        font-weight: 100;
+        a{
+            text-decoration: none;
+           color: $corporative-color;
+           font-weight: 500;
+        }
+    }
+    div{
+        margin-top: 0%;
+        background: $corporative-color;
+        padding: 10px;
+        h2{
+            color: $secundari;
+        }
+        form{
+            input{
+                color: $secundari;
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid $secundari;
+                font-size: 18px;
+                &:focus{
+                    outline: none;
+                }
+            }
+            label{
+                text-align: left;
+                margin-top: 10px;
+                color: $secundari;
+                margin-bottom: 2px;
+                opacity: 0.8;
+            }
+            .submit{
+                text-align: right;
+                margin-top: 15px;
+                color: $secundari;
+                font-size: 18px;
+                border: none;
+            }
+        }
+    }
+}
+
+.signup-section{
+    width: 100vw;
+    position: fixed;
+    height: 100vh;
+    right: -100vw;
+    top: 0;
+    padding: 20px;
+    background: $corporative-color;
+    text-align: center;
+    transition: transform 0.6s;
+    p{
+        text-align: center;
+        margin-right: 10px;
+        margin-top: 10px;
+        font-weight: 100;
+        color: $secundari;
+        a{
+            text-decoration: none;
+           color: $secundari;
+           font-weight: 500;
+        }
+    }
+    div{
+        background: $secundari;
+        padding: 10px;
+        margin-top: 40%;
+        h2{
+            color: $corporative-color;
+        }
+        form{
+            input{
+                color: $corporative-color;
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid $corporative-color;
+                font-size: 18px;
+                &:focus{
+                    outline: none;
+                }
+            }
+            label{
+                text-align: left;
+                margin-top: 12px;
+                color: $corporative-color;
+                margin-bottom: 2px;
+                opacity: 0.7;
+            }
+            .submit{
+                text-align: right;
+                margin-top: 15px;
+                color: $corporative-color;
+                font-size: 18px;
+                border: none;
+            }
+        }
+    }
+}
+
+.club-platform-link{
+    position: fixed;
+    bottom: 0;
+    padding: 3px 20px;
+    font-size: 13px;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    font-weight: 100;
+    color: $secundari;
+    background: $corporative-color;
+    a{
+        text-decoration: none;
+        color: $secundari;
+       font-weight: 500;
+    }
+}
+
+.position-two{
+    transform: translate(-100vw);
+    transition: transform 0.6s;
+}

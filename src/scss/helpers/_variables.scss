@@ -1,0 +1,10 @@
+$corporative-color: #43B28A;
+$secundari: whitesmoke;
+$shadow: gray;
+$thirdColor: #6394A7;
+
+@mixin flex-center($direction) {
+    display: flex;
+    justify-content: center;
+    flex-direction: $direction;
+}
