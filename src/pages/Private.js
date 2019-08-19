@@ -5,6 +5,8 @@ import Navbar from '../components/statics/Navbar';
 import Feed from './Feed';
 import ChatList from './ChatList'
 import Profile from './Profile'
+import CreateEvent from './CreateEvent'
+import Events from './Events';
 
 class Private extends Component {
     state= {
@@ -45,7 +47,6 @@ class Private extends Component {
     }
 
   render() {
-    console.log(this.props.user)
     const {position, positionN, positionP, page, settingsClass} = this.state;
     return (
         <>
@@ -53,8 +54,8 @@ class Private extends Component {
             <HeaderIn />
             <Navbar fillName={'whitesmoke'} toLeft={this.gotoProfile} toRight={this.gotoChats} position={position} changePage={this.changePage}/>
             {page === 'feed' ? <Feed/>: null}
-            {page === 'add' ? null: null}
-            {page === 'calender' ? null :null}
+            {page === 'add' ? <CreateEvent />: null}
+            {page === 'calender' ? <Events /> :null}
             {page === 'stats' ? null: null}
         </section>
         <section className={positionP}>

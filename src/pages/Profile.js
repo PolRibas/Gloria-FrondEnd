@@ -1,10 +1,24 @@
 import React, { Component } from 'react'
 import {ReactComponent as Clouse} from './icons8-delete_sign.svg'
 import { Link } from 'react-router-dom';
+import clubService from '../services/club-service'
 
 class Profile extends Component {
+    state = {
+        club: {}
+    }
+    componentDidMount = () => {
+        const id = this.props.user.id
+        clubService.iAmPartOfTheClub(id)
+        .then((club) => {console.log('I have club: ' , club)
+                this.setState({
+                    club: club.data
+                })
+        })
+    }
     render(props) {
         const {user} = this.props;
+        console.log('club: ' , this.state. club)
         return (
             <>
             <div>
@@ -33,9 +47,15 @@ class Profile extends Component {
                     <section className='my-club-settings'>
                         <h2>Senior Masculi</h2>
                     </section>
-                    <section className='my-club-settings'>
-                        <h2>Senior Masculi</h2>
-                    </section>
+                    {this.state.club.teams ? this.state.club.teams.map((oneteam) => {
+                        return <>
+                            <Link to={`/team/${oneteam._id}`}>
+                                <section className='my-club-settings'>
+                                <h2 key={oneteam._id}>{oneteam.name}</h2>
+                                </section>
+                            </Link>
+                            </>
+                    }) : <p>No teams yet</p>}
                     <Link to='/settings'>Settings</Link>
                 </section>
             </>

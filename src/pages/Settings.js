@@ -8,13 +8,11 @@ class Settings extends Component {
     destroySesion = () => {
         this.props.logout()
         .then((user) => {
-            console.log(user)
           })
         .catch( error => console.log(error) )
     }
 
     render() {
-        console.log(this.props.user)
         return (
             <div>
                 <section className='settings-header'>

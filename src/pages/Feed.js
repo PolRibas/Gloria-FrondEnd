@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import FinishMatchCard from '../components/cards/FinishMatchCard';
+import IHaveClub from '../components/IHaveClub';
 
 class Feed extends Component {
     state = {
@@ -18,6 +19,7 @@ class Feed extends Component {
             <section className='feed-container'>
                 {isLoading ?  null : (
                     <>
+                    <IHaveClub />
                     <FinishMatchCard />
                     <FinishMatchCard />
                     </>)

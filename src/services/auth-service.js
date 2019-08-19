@@ -3,7 +3,7 @@ import axios from 'axios';
 class AuthService {
   constructor() {
     this.auth = axios.create({
-      baseURL: process.env.BACKEND_DOMAIN + '/auth',
+      baseURL: process.env.REACT_APP_BACKEND_DOMAIN + '/auth',
       withCredentials: true
     })
   }
@@ -11,7 +11,9 @@ class AuthService {
   signup(user) {
     const { username, password, email} = user;
     return this.auth.post('/signup', {username, password, email})
-      .then(({ data }) => data);
+      .then(({ data }) => {
+      console.log(data)
+      return data});
   }
 
   login(user) {

@@ -12,6 +12,8 @@ import AnonimRoute from './components/AnonimRoute.js';
 import Settings from './pages/Settings'
 import UpdateP from './pages/UpdateP'
 import CreateClub from './pages/CreateClub'
+import ClubInterfice from './pages/ClubInterfice';
+import Team from './pages/Team';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
                 <PrivateRote path="/private" component={Private} />
                 <PrivateRote path="/settings" component={Settings} />
                 <PrivateRote path="/updateProfile" component={UpdateP} />
+                <PrivateRote path="/clubInterface" component={ClubInterfice} />
+                <PrivateRote path="/team/:id" component={Team} />
             </Switch>
         </AuthProvaider>
       </Router>

@@ -378,6 +378,26 @@ body {
   transform: translateX(100vw);
   transition: transform 0.3s linear; }
 
+a {
+  text-decoration: none; }
+  a .club-box-feed {
+    text-align: center;
+    color: whitesmoke;
+    background: #6394A7;
+    width: 100%;
+    padding: 2px;
+    margin-bottom: 15px;
+    -webkit-box-shadow: -1px 1px 7px 1px gray;
+    -moz-box-shadow: -1px 1px 7px 1px gray;
+    box-shadow: -1px 1px 7px 1px gray;
+    border-radius: 3px; }
+    a .club-box-feed h2 {
+      margin-bottom: 2px;
+      margin-top: 8px; }
+    a .club-box-feed p {
+      margin-top: 0px;
+      margin-bottom: 6px; }
+
 .header-in {
   position: fixed;
   top: 0;
@@ -433,3 +453,170 @@ body {
 
 .desktop-navbar {
   display: none; }
+
+.club-creator-page {
+  padding: 10px;
+  text-align: center;
+  background: #43B28A;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  color: #6394A7; }
+  .club-creator-page section {
+    background: whitesmoke;
+    padding: 10px;
+    border-radius: 3px; }
+    .club-creator-page section .final-button {
+      margin: 30px;
+      padding: 10px 40px;
+      background: #43B28A;
+      color: whitesmoke; }
+    .club-creator-page section h3 {
+      margin-bottom: 0px; }
+    .club-creator-page section p {
+      margin-top: 0px;
+      margin-bottom: 30px; }
+    .club-creator-page section #green-numbers-box {
+      width: 100%;
+      height: 20px;
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      justify-content: center;
+      margin-bottom: 35px; }
+      .club-creator-page section #green-numbers-box .number {
+        width: 20px;
+        height: 20px;
+        margin: 0 25px;
+        background-color: #6394A7;
+        border-radius: 50%;
+        opacity: 0.5; }
+      .club-creator-page section #green-numbers-box .green-number {
+        width: 20px;
+        height: 20px;
+        margin: 0 25px;
+        background: #43B28A;
+        border-radius: 50%; }
+    .club-creator-page section form label {
+      text-align: left;
+      margin: 1px 0px;
+      opacity: 0.7; }
+    .club-creator-page section form input {
+      margin: 0px 0px 10px 0px;
+      color: #6394A7;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #6394A7;
+      font-size: 18px; }
+      .club-creator-page section form input:focus {
+        outline: none; }
+    .club-creator-page section form .next-input {
+      text-align: right;
+      border-bottom: 0px solid #6394A7; }
+
+.club-interface {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: whitesmoke;
+  top: 0;
+  padding: 10px 20px;
+  overflow: scroll;
+  color: #43B28A; }
+  .club-interface .team-box-create {
+    width: 100%;
+    margin: 10px 0px;
+    color: whitesmoke;
+    text-decoration: none; }
+    .club-interface .team-box-create section {
+      background: #43B28A;
+      margin: 10px 0px;
+      text-align: center;
+      padding: 3px;
+      border-radius: 3px;
+      width: 100%;
+      padding: 4px;
+      text-decoration: none; }
+      .club-interface .team-box-create section div {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        color: whitesmoke; }
+        .club-interface .team-box-create section div p {
+          margin: 2px;
+          text-decoration: none;
+          color: whitesmoke; }
+      .club-interface .team-box-create section h3 {
+        margin: 2px;
+        color: whitesmoke; }
+  .club-interface a .clouse-bar {
+    border-bottom: 1px solid #43B28A;
+    width: 100%;
+    height: 50px;
+    z-index: 3;
+    position: fixed;
+    background: whitesmoke;
+    top: 0; }
+    .club-interface a .clouse-bar #clouseCruz {
+      margin-top: 16px;
+      width: 25px; }
+    .club-interface a .clouse-bar div {
+      height: 50px;
+      width: 30px;
+      position: fixed;
+      top: 0px; }
+    .club-interface a .clouse-bar h2 {
+      text-align: center; }
+    .club-interface a .clouse-bar .principal-title {
+      width: 90%;
+      position: fixed;
+      top: 0px;
+      text-align: center;
+      color: #43B28A;
+      margin-top: 17px;
+      z-index: 0; }
+  .club-interface h2, .club-interface p {
+    text-align: center; }
+  .club-interface h2 {
+    margin-top: 50px; }
+  .club-interface .selected-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr; }
+    .club-interface .selected-box .selectets-treiners {
+      margin: 5px;
+      font-size: 12px; }
+  .club-interface .reate-team-form {
+    width: 100%;
+    text-align: center; }
+  .club-interface form {
+    z-index: 3; }
+    .club-interface form input {
+      color: #6394A7;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #6394A7;
+      font-size: 18px; }
+      .club-interface form input:focus {
+        outline: none; }
+    .club-interface form label {
+      text-align: left;
+      margin-top: 10px;
+      color: #6394A7;
+      margin-bottom: 2px;
+      opacity: 0.8; }
+    .club-interface form .submit {
+      text-align: center;
+      margin-top: 15px;
+      color: #6394A7;
+      font-size: 18px;
+      border: none; }
+  .club-interface .list-match {
+    height: 100px;
+    overflow: scroll;
+    border: 2px solid #6394A7;
+    margin: 15px; }
+    .club-interface .list-match p {
+      color: #6394A7;
+      text-align: center;
+      margin: 1px; }
