@@ -7,6 +7,7 @@ import ChatList from './ChatList'
 import Profile from './Profile'
 import CreateEvent from './CreateEvent'
 import Events from './Events';
+import Stats from './Stats';
 
 class Private extends Component {
     state= {
@@ -45,9 +46,11 @@ class Private extends Component {
             positionP: 'profile',
         })
     }
-
+    componentDidMount = () => {
+        
+    }
   render() {
-    const {position, positionN, positionP, page, settingsClass} = this.state;
+    const {position, positionN, positionP, page} = this.state;
     return (
         <>
         <section>
@@ -56,7 +59,7 @@ class Private extends Component {
             {page === 'feed' ? <Feed/>: null}
             {page === 'add' ? <CreateEvent />: null}
             {page === 'calender' ? <Events /> :null}
-            {page === 'stats' ? null: null}
+            {page === 'stats' ? <Stats />: null}
         </section>
         <section className={positionP}>
             <Profile cluse={this.clouseSplash} user={this.props.user}/>

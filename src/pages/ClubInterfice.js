@@ -3,7 +3,6 @@ import {ReactComponent as Clouse} from './icons8-delete_sign.svg'
 import clubService from '../services/club-service'
 import withAuth from '../components/withAuth'
 import { Link } from 'react-router-dom';
-import ChatList from './ChatList';
 
 class ClubInterfice extends Component {
     state = {
@@ -103,14 +102,14 @@ class ClubInterfice extends Component {
                     <label htmlFor='trenerSerch'>Serch username for Treiner:</label>
                     <input id='trenerSerch' type='text' name='trenerSerch' value={this.state.trenerSerch} onChange={this.handleChangeList}/>
                 <section className='selected-box'> 
-                    {this.state.treiners.map((admin) => {
-                        return <p className='selectets-treiners'> - {admin.username} - </p>
+                    {this.state.treiners.map((admin, i) => {
+                        return <p key={i} className='selectets-treiners'> - {admin.username} - </p>
                     })}
                 </section>
                       <section className='list-match'>
-                {this.state.isAMatch.map((user) => {
+                {this.state.isAMatch.map((user, i) => {
                         return <>
-                        <button onClick={() => this.addAdminClick(user)}>
+                        <button key={i} onClick={() => this.addAdminClick(user)}>
                             <p> - {user.username} - </p>
                         </button>
                         </>

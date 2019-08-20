@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import withAuth from '../components/withAuth'
 import profileService from '../services/profile-service'
+import {Redirect} from 'react-router-dom'
 
 class UpdateP extends Component {
     state = {
@@ -8,7 +9,8 @@ class UpdateP extends Component {
         username: this.props.user.username, 
         email: this.props.user.email, 
         firstName: this.props.user.firstName, 
-        surname: this.props.user.surname
+        surname: this.props.user.surname,
+        isFinish: false
     }
     handleChange = (event) => {  
         const {name, value} = event.target;
@@ -17,27 +19,21 @@ class UpdateP extends Component {
 
     handlesubmit = (event) => {
         event.preventDefault();
-        console.log(this.state)
         const {_id, username, email, firstName, surname} = this.state 
         profileService.updateprofile({_id, username, email, firstName, surname})
-        .then( (user) => {
-            this.props.user = user
+        .then( () => {
             this.setState({
-                    _id: user.id,
-                    username: user.username, 
-                    email: user.email, 
-                    firstName: user.firstName, 
-                    surname: user.surname
+                    isFinish: true
             })
         })
         .catch( error => console.log(error) )
     }
 
     render(props) {
-        const {_id, username, email, firstName, surname} = this.state
-        console.log(_id, username, email, firstName, surname)
+        const {username, firstName, surname, isFinish} = this.state
         return (
             <div>
+            {isFinish ? <Redirect to='/private' /> : null}
                 <p>update profile</p>
                 <form onSubmit={this.handlesubmit}>
                     <label htmlFor='username'>Username:</label>

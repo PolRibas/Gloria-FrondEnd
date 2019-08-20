@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import withAuth from '../components/withAuth'
 import clubService from '../services/club-service'
@@ -163,8 +163,8 @@ class CreateClub extends Component {
                         <label htmlFor='admin'>Serch username for admin:</label>
                         <input id='admin' type='text' name='admin' value={admin} onChange={this.handleChange}/>
                     </form>
-                    {admins.map((admin) => {
-                        return <p> - {admin.username} - </p>
+                    {admins.map((admin, i) => {
+                        return <p key={i}> - {admin.username} - </p>
                     })}
                     <form onSubmit={this.goToAddTeams}>
                          <input type='submit' value='Next' className='next-input'/>
@@ -180,10 +180,10 @@ class CreateClub extends Component {
                 </section>
                 {inTheAddAdmin ?  
                     <section>
-                    {isAMatch.map((user) => {
+                    {isAMatch.map((user, i) => {
                         return <>
                         <button onClick={() => this.addAdminClick(user)}>
-                            <p> {user.username} </p>
+                            <p key={i}> {user.username} </p>
                         </button>
                         </>
                     })}

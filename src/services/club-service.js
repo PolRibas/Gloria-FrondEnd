@@ -40,11 +40,22 @@ class clubServiceClass {
   iAmPartOfTheClub(id){
     return this.clubService.get(`/club/iAmInAClubInterfice/${id}`)
   }
-  createAnewEvent(teamId, type, date){
-    return this.clubService.put(`/club/createEvent`, {teamId, type, date})
+  createAnewEvent(teamId, type, date, title, rival){
+    return this.clubService.put(`/club/createEvent`, {teamId, type, date, title, rival})
   }
   loadEvents(teamId, type, date){
     return this.clubService.get(`/club/loadEvents`, {teamId, type, date})
+  }
+  findEventById(id){
+    return this.clubService.get(`/club/getEvent/${id}`)
+  }
+
+  deleteEventById(id){
+    return this.clubService.delete(`/club/deleteEvent/${id}`)
+  }
+
+  updateEvent(data){
+    return this.clubService.put(`/club/updateEvent`, data)
   }
 
 }

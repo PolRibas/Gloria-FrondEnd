@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './css/main.css'
 
@@ -14,6 +14,7 @@ import UpdateP from './pages/UpdateP'
 import CreateClub from './pages/CreateClub'
 import ClubInterfice from './pages/ClubInterfice';
 import Team from './pages/Team';
+import EventDetils from './pages/EventDetils'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
                 <PrivateRote path="/updateProfile" component={UpdateP} />
                 <PrivateRote path="/clubInterface" component={ClubInterfice} />
                 <PrivateRote path="/team/:id" component={Team} />
+                <PrivateRote path="/event/:id" component={EventDetils} />
             </Switch>
         </AuthProvaider>
       </Router>

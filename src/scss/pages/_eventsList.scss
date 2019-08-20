@@ -1,0 +1,71 @@
+.events-container{
+    display: flex;
+    flex-direction: column;
+    padding: 20px; 
+    color: $secundari;
+     .events-container{
+        background: $thirdColor;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 3px;
+        -webkit-box-shadow: -1px 1px 7px 1px $shadow;
+        -moz-box-shadow: -1px 1px 7px 1px $shadow;
+        box-shadow: -1px 1px 7px 1px $shadow;
+        color: $secundari;
+        div{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            color: $secundari;
+            opacity: 0.8;
+        }
+        a div{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            color: $secundari;
+            opacity: 0.8;
+        }
+        h2, p{
+            width: 100%;
+            text-align: center;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            color: $secundari;
+        }
+        p{
+            font-size: 12px;
+        }
+     }
+}
+
+.five-pixels-before{
+    margin-top: 50px;
+    width: 100%;
+}
+
+.delete-event-botton{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    button{
+        padding: 10px;
+        background: rgb(151, 65, 65);
+        border-radius: 3px;
+        color: $secundari;
+        font-size: 16px;
+    }
+    .submit-event{
+        padding: 10px;
+        background: $corporative-color;
+        border-radius: 3px;
+        color: $secundari;
+        font-size: 16px;
+    }
+}
+
+.resultado-visible{
+    display: flex;
+    flex-direction: column;
+}

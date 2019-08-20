@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Link, Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import withAuth from '../components/withAuth'
 
@@ -16,7 +16,7 @@ class ClubLogin extends Component {
 
   handleFormSubmitLogin = (event) => {
      event.preventDefault();
-    const { username, password } = this.state
+   
   }
 
   handleFormSubmitSignup = (event) => {

@@ -24,6 +24,7 @@ class Feed extends Component {
                     <FinishMatchCard />
                     </>)
                 }
+                <div className='five-pixels-before'></div>
             </section>
         )
     }

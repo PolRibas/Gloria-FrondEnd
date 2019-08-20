@@ -205,6 +205,7 @@ body {
         font-size: 28px; }
 
 .notifications {
+  z-index: 10;
   right: -100vw;
   position: fixed;
   height: 100vh;
@@ -285,6 +286,7 @@ body {
     width: 100%; }
 
 .profile {
+  z-index: 10;
   right: 100vw;
   position: fixed;
   height: 100vh;
@@ -425,7 +427,7 @@ a {
     position: fixed;
     bottom: 0;
     list-style-type: none;
-    z-index: 2;
+    z-index: 1;
     margin: 0;
     padding: 4px 25px; }
     .icons-navbar .bottom-navbar li {
@@ -436,7 +438,8 @@ a {
     background: #43B28A;
     width: 100%;
     height: 50px;
-    opacity: 0.94; }
+    opacity: 0.94;
+    z-index: 1; }
   .icons-navbar .top-navbar {
     display: flex;
     padding: 0;
@@ -445,11 +448,12 @@ a {
     position: fixed;
     top: 0px;
     list-style-type: none;
-    z-index: 3;
+    z-index: 1;
     margin: 0;
     padding: 14px 25px; }
     .icons-navbar .top-navbar li {
-      width: 25px; }
+      width: 25px;
+      z-index: 1; }
 
 .desktop-navbar {
   display: none; }
@@ -620,3 +624,99 @@ a {
       color: #6394A7;
       text-align: center;
       margin: 1px; }
+
+.events-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  color: whitesmoke; }
+  .events-container .events-container {
+    background: #6394A7;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 3px;
+    -webkit-box-shadow: -1px 1px 7px 1px gray;
+    -moz-box-shadow: -1px 1px 7px 1px gray;
+    box-shadow: -1px 1px 7px 1px gray;
+    color: whitesmoke; }
+    .events-container .events-container div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      color: whitesmoke;
+      opacity: 0.8; }
+    .events-container .events-container a div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      color: whitesmoke;
+      opacity: 0.8; }
+    .events-container .events-container h2, .events-container .events-container p {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 5px;
+      margin-top: 5px;
+      color: whitesmoke; }
+    .events-container .events-container p {
+      font-size: 12px; }
+
+.five-pixels-before {
+  margin-top: 50px;
+  width: 100%; }
+
+.delete-event-botton {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px; }
+  .delete-event-botton button {
+    padding: 10px;
+    background: #974141;
+    border-radius: 3px;
+    color: whitesmoke;
+    font-size: 16px; }
+  .delete-event-botton .submit-event {
+    padding: 10px;
+    background: #43B28A;
+    border-radius: 3px;
+    color: whitesmoke;
+    font-size: 16px; }
+
+.resultado-visible {
+  display: flex;
+  flex-direction: column; }
+
+.create-event-form {
+  padding: 20px; }
+  .create-event-form h2 {
+    color: #43B28A;
+    text-align: center; }
+  .create-event-form form select, .create-event-form form input {
+    color: #6394A7;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #6394A7;
+    font-size: 18px;
+    margin-bottom: 20px;
+    border-radius: 0px; }
+    .create-event-form form select:focus, .create-event-form form input:focus {
+      outline: none; }
+  .create-event-form form .submit {
+    border-bottom: 0px solid #6394A7;
+    margin-top: 20px; }
+
+.message-user {
+  animation-name: message-move;
+  animation-duration: 2s;
+  width: 100%;
+  background: #fff49d;
+  color: black;
+  text-align: center;
+  padding: 26px;
+  border-radius: 8px; }
+
+@keyframes message-move {
+  from {
+    opacity: 0.1; }
+  to {
+    opacity: 0.9; } }

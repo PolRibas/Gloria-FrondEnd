@@ -1,0 +1,42 @@
+.create-event-form{
+    padding: 20px;
+    h2{
+        color: $corporative-color;
+        text-align: center;
+    }
+    form{
+        select, input{
+            color: $thirdColor;
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid $thirdColor;
+                font-size: 18px;
+                margin-bottom: 20px;
+                border-radius: 0px;
+                &:focus{
+                    outline: none;
+                }
+        }
+        .submit{
+            border-bottom: 0px solid $thirdColor;
+            margin-top: 20px;
+        }
+    }
+}
+
+
+.message-user{
+    animation-name: message-move;
+    animation-duration: 2s;
+    width: 100%;
+    background: #fff49d;
+    color: black;
+    text-align: center;
+    padding: 26px;
+    border-radius: 8px;
+}
+
+@keyframes message-move {
+    from {opacity: 0.1;}
+    to {opacity: 0.9;}
+  }

@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import {ReactComponent as Clouse} from './icons8-delete_sign.svg'
-import { Link } from 'react-router-dom';
 import clubService from '../services/club-service'
 import withAuth from '../components/withAuth'
 
@@ -9,9 +7,11 @@ class Events extends Component {
         club: {},
         myTeams: [],
         date: '',
-        type: 'treining',
+        type: 'training',
         team: '',
-
+        done: false,
+        title: '',
+        rival: ''
     }
     componentDidMount = () => {
         const id = this.props.user.id
@@ -40,20 +40,20 @@ class Events extends Component {
 
     handlesubmit = (e) => {
         e.preventDefault();
-        console.log(this.state)
         const teamId = this.state.team;
-        const type = this.state.type;
-        const date = this.state.date;
-        clubService.createAnewEvent(teamId, type, date)
-        .then(r => console.log(r.data))
+        const {type, date, title, rival} = this.state;
+        clubService.createAnewEvent(teamId, type, date, title, rival)
+        .then(r => 
+        this.setState({
+            date: '',
+            type: 'training',
+            team: '',
+            done: true,
+            title: '', 
+            rival: ''
+        })
+        )
         .catch(e => console.log(e))
-        if(this.state.date !== ''){
-            this.setState({
-                date: '',
-                type: 'treining',
-                team: '',
-            })
-        }
     }
 
     handleChange = (event) => {  
@@ -63,14 +63,15 @@ class Events extends Component {
 
     render() {
         return (
-            <div>
+            <div className='create-event-form'>
                 { this.state.club.team !== '' ? <>
-                    <h2>Create a newEvent</h2>
+                    <h2>Create a new event</h2>
                 <form onSubmit={this.handlesubmit}>
+                    <input type='text' name='title' value={this.state.title} onChange={this.handleChange} placeholder='Write a title for the event' required/>
                     <select name='team' value={this.state.team} onChange={this.handleChange}>
                         {this.state.club.teams ? 
                             this.state.myTeams.map((team) => {
-                                return <><option key={team._id} value={team._id}>{team.name}</option></>
+                                return <option key={team._id} value={team._id}>{team.name}</option>
                                     
                             })
                             : null}
@@ -84,14 +85,13 @@ class Events extends Component {
                             : null}
                     </select>
                     {this.state.club.teams ? 
-                            <>
-                            <input type='date' name='date' value={this.state.date} onChange={this.handleChange}/>
-                            </>
+                            <input type='datetime-local' name='date' value={this.state.date} onChange={this.handleChange}/>
                             : null}
-                    <input type='submit' value='Create Event'/>
+                    {this.state.type === 'match' ? <input type='text' name='rival' value={this.state.rival} onChange={this.handleChange} placeholder='Agains who do you play?' required/> : null}
+                    <input className='submit' type='submit' value='Create Event'/>
                 </form>
                 </> :<p>You are not a trainer</p>}
-            
+                {this.state.done ? <p className='message-user'>Event created</p> : null}
             </div>
         )
     }

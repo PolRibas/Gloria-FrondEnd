@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import {ReactComponent as Hamburger} from './navbarIcons/burger.svg'
 import {ReactComponent as Calendar} from './navbarIcons/calendar.svg'
 import {ReactComponent as Chat} from './navbarIcons/chat.svg'
@@ -37,7 +37,7 @@ class Navbar extends Component {
                         </ul>
                         </section>
                     </nav>
-            <nav className='desktop-navbar'>
+            {/* <nav className='desktop-navbar'>
                 <ul>
                 <li>
                         <Link></Link>
@@ -58,7 +58,7 @@ class Navbar extends Component {
                         <Link></Link>
                     </li>
                 </ul>
-            </nav>
+            </nav> */}
             </>
         )
     }
