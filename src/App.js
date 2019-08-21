@@ -17,6 +17,7 @@ import Team from './pages/Team';
 import EventDetils from './pages/EventDetils'
 import Chat from './pages/Chat';
 import firebase from "firebase";
+import Slide from './pages/Slide';
 
 const config = {
     apiKey: process.env.API_KEY,
@@ -33,6 +34,7 @@ function App() {
       <Router>
         <AuthProvaider>
             <Switch>
+                <PrivateRote path="/" exact component={Slide} />
                 <AnonimRoute path="/signup" component={Signup} />
                 <AnonimRoute path="/login" component={Login} />
                 <Route path="/createClub/:name/:city/:sport" component={CreateClub} />
