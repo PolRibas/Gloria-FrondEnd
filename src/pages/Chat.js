@@ -1,13 +1,15 @@
 import React, { useState,useEffect } from 'react'
 import io from 'socket.io-client';
-import backEnd from '../services/backEnd'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import withAuth from '../components/withAuth'
+import chat from '../services/chat-service'
+import {ReactComponent as Clouse} from './icons8-delete_sign.svg'
+import { Link } from 'react-router-dom';
 
-export default function Chat(props) {
+function Chat(props) {
  
   const [messages, setMessages] = useState([]);
-  const [socket] = useState(io(`http://192.168.66.70:4000/`));
-  const {id} = socket
+  const [oldmessages, setOldMessages] = useState([]);
+  const [socket] = useState(io(`${process.env.REACT_APP_BACKEND_DOMAIN}`));
     socket.on('create', () => { socket.join(props.match.params.id); })
     
 
@@ -20,17 +22,24 @@ export default function Chat(props) {
    return () => isSubscribed = false
   }, [messages, socket]);
   
+    useEffect(() => {
+        const id = props.match.params.id
+        chat.getAllMessages(id)
+        .then(r=> setOldMessages(r.data[0]))
+        .catch(e=>console.log(e))
+    }, [props.match.params.id])
+
   const handleSubmit = (e) =>{
-    const body = e.target.value;
-    const toDataBase = {body, ID: socket.id}
+    const body = props.user.username + ':    ' + e.target.value;
     if(e.keyCode === 13 && body){
       const message = {
         body,
         from: socket.id,
         room: props.match.params.id
       }
-      backEnd.updateOneM(message.from, toDataBase)
-        .then(response => {})
+    chat.updateOneM({body}, props.match.params.id)
+     .then(response => {console.log(response)})
+     .catch(e=>console.log(e))
 
       setMessages([...messages, message]);
       socket.emit('message', message);
@@ -40,9 +49,10 @@ export default function Chat(props) {
 
   const messagesDestructured = messages.map((message, i) =>{
       if(message.body.room === props.match.params.id || message.from === socket.id){
+          const {body} = message
           return(
             <li key={i}>
-            { id === message.from  ? `myself: ${message.body}` : `otherself: ${message.body.body}`}
+            {body.body ? `${body.body}` : `${body}`}
           </li>
           )
       }else{
@@ -51,15 +61,32 @@ export default function Chat(props) {
     
   });
   return (
-    <div>
-      Chat
-      <input 
+      <>
+      <div className='padding-for-clouse'>
+        <Link to='/private' className='clouse-nav'>
+            <div className='clouse-bar'>
+                    <h2 className='principal-title'>Chat</h2>
+                    <Clouse fill='#43B28A' id='clouseCruz'/>
+            </div>
+        </Link>
+      </div>
+
+    <div className='chat-form'>
+      <ul>
+          {oldmessages.chat ? oldmessages.chat.map((message, i) => {
+              return <li key={i}>
+              {  `${message}`}
+            </li>
+          }): null}
+        {messagesDestructured}
+      </ul>
+      <input className='form-for-chat'
       type="text" 
       placeholder="Escribe algo"
       onKeyUp={handleSubmit}/>
-      <ul>
-        {messagesDestructured}
-      </ul>
     </div>
+    </>
   )
 }
+
+export default withAuth(Chat)

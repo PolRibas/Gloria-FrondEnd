@@ -1,8 +1,24 @@
 import React, { Component } from 'react'
 import {ReactComponent as Clouse} from './icons8-delete_sign.svg'
+import withAuth from '../components/withAuth'
+import { Link } from 'react-router-dom';
+import clubService from '../services/club-service'
 
 class ChatList extends Component {
-    render(props) {
+    state = {
+        club: {}
+    }
+
+    componentDidMount = () => {
+        const id = this.props.user.id
+        clubService.iAmPartOfTheClub(id)
+        .then((club) => {
+                this.setState({
+                    club: club.data
+                })
+        })
+    }
+    render() {
         return (
             <>
             <div>
@@ -15,25 +31,27 @@ class ChatList extends Component {
                 <div>
                     <h2 className='special-text'>All CLub</h2>
                 </div>
-                <section className='my-club-settings'>
-                    <h2>Senior Masculi</h2>
-                </section>
-                <section className='my-club-settings'>
-                    <h2>Senior Masculi</h2>
-                </section>
+                {this.state.club._id ? 
+                    <section className='my-club-settings'>
+                        <Link to={`/chat/${this.state.club._id}`}>
+                            <h2>{this.state.club.name}</h2>
+                        </Link>
+                    </section>
+                : null}
                 <div>
-                    <h2 className='special-text'>Senior Masculi</h2>
+                    <h2 className='special-text'>Teams</h2>
                 </div>  
-                <section className='my-club-settings'>
-                    <h2>Senior Masculi</h2>
-                </section>
-                <section className='my-club-settings'>
-                    <h2>Senior Masculi</h2>
-                </section>
+                {this.state.club.teams ? this.state.club.teams.map((team) => {
+                    return <section key={team._id} className='my-club-settings'>
+                    <Link to={`/chat/${team._id}`}>
+                        <h2>{team.name}</h2>
+                     </Link>
+                     </section>
+                }) : null}
             </section>
             </>
         )
     }
 }
 
-export default ChatList
+export default withAuth(ChatList)

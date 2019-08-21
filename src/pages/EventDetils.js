@@ -4,6 +4,7 @@ import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import {ReactComponent as Clouse} from './icons8-delete_sign.svg'
 import {Redirect} from 'react-router-dom'
+import FileUploadComponent from '../components/images/ImageUpdate';
 
 class EventDetils extends Component {
     state = {
@@ -13,7 +14,8 @@ class EventDetils extends Component {
         myGoals: '',
         type: '',
         id: this.props.match.params.id,
-        isRedirect: false
+        isRedirect: false,
+        url: 'no image',
     }
     componentDidMount = () => {
         clubService.findEventById(this.props.match.params.id)
@@ -49,6 +51,12 @@ class EventDetils extends Component {
         .catch(e => console.log(e))
     }
 
+    getUrlImage = (url) => {
+        this.setState({
+            url
+        })
+    }
+
     render() {
         const {event} = this.state
         console.log(event)
@@ -64,6 +72,7 @@ class EventDetils extends Component {
                 </div>
             </Link>
                 <div className='five-pixels-before'></div>
+                <FileUploadComponent getUrl={this.getUrlImage} name={this.props.match.params.id}/>
                 {event.type === 'match' ? <form onSubmit={this.handleSubmit}>
                     <label htmlFor='myGoals'>Team Goals:</label>
                     <input id='myGoals' type='number' name='myGoals' onChange={this.handleChange} value={this.state.myGoals}/>

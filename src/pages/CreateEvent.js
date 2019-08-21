@@ -70,9 +70,8 @@ class Events extends Component {
                     <input type='text' name='title' value={this.state.title} onChange={this.handleChange} placeholder='Write a title for the event' required/>
                     <select name='team' value={this.state.team} onChange={this.handleChange}>
                         {this.state.club.teams ? 
-                            this.state.myTeams.map((team) => {
-                                return <option key={team._id} value={team._id}>{team.name}</option>
-                                    
+                            this.state.myTeams.map((team, i) => {
+                                return <option key={team._id + i} value={team._id}>{team.name}</option>      
                             })
                             : null}
                     </select>

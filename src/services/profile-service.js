@@ -9,8 +9,8 @@ class ProfileServices {
   }
 
   updateprofile(data) {
-    const { _id, username, email, firstName, surname} = data;
-    return this.profileService.put('/profile/updateProfile', {_id, username, email, firstName, surname})
+    const { _id, username, email, firstName, surname, url} = data;
+    return this.profileService.put('/profile/updateProfile', {_id, username, email, firstName, surname, url})
       .then(({ data }) => data);
   }
 

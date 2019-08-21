@@ -2,17 +2,17 @@ import axios from 'axios'
 
 class ChatService {
     constructor (){
-        this.back = axios.create({
-            baseURL: 'http://192.168.66.70:4000/api'
+        this.chat = axios.create({
+            baseURL: process.env.REACT_APP_BACKEND_DOMAIN + '/chat'
         })
     }
     
-    getAllAps(){
-        return this.chat.get('/getChat/:id')
+    getAllMessages(id){
+        return this.chat.get(`/getChat/${id}`)
         .then(response => response)
     }
     
-    updateOneM(id, data){
+    updateOneM(data, id){
         console.log(id)
         return this.chat.put(`/postMessage/${id}`, data)
         .then(response => response)

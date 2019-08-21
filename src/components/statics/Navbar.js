@@ -6,8 +6,27 @@ import {ReactComponent as Chat} from './navbarIcons/chat.svg'
 import {ReactComponent as Mas} from './navbarIcons/mas.svg'
 import {ReactComponent as Profile} from './navbarIcons/profile.svg'
 import {ReactComponent as Stats} from './navbarIcons/stats.svg'
+import withAuth from '../withAuth'
+import clubService from '../../services/club-service'
 
 class Navbar extends Component {
+    state = {
+        treiner: true
+    }
+    componentDidMount = () => {
+        console.log(this.props.user)
+        const id = this.props.user.id
+        clubService.doIHaveClub(id)
+        .then((club) => {
+                if(club.data.club === "noclub"){
+                 this.setState({
+                    treiner: false
+                 })
+                }
+        })
+        .catch((err) => console.log(err))
+    }
+
     render() {
         return (
             <>
@@ -17,9 +36,11 @@ class Navbar extends Component {
                                 <li>
                                     <Hamburger fill={this.props.fillName} onClick={ () => this.props.changePage('feed')}/>
                                 </li>
-                                <li>
-                                    <Mas fill={this.props.fillName} onClick={ () => this.props.changePage('add')}/>
-                                </li>
+                                {this.state.treiner ?  
+                                    <li>
+                                        <Mas fill={this.props.fillName} onClick={ () => this.props.changePage('add')}/>
+                                    </li>
+                                    : null}
                                 <li>
                                     <Calendar fill={this.props.fillName} onClick={ () => this.props.changePage('calender')}/>
                                 </li>
@@ -64,4 +85,4 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar
+export default withAuth(Navbar)

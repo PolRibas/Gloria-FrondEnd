@@ -83,12 +83,13 @@ html {
         text-align: center;
         z-index: 0;
         color: $corporative-color;
+        object-fit: cover;
         img{
             height: 130px;
             width: 130px;
-            align: center;
             border-radius: 50%;
             margin-bottom: 14px; 
+            object-fit: cover;
         }
         .my-club-settings{
             height: 50px;
@@ -105,13 +106,15 @@ html {
         }
         h3, p{
             margin: 2px;
+            color: $secundari;
         }
         h2{
             margin-top: 0px;
+            color: $secundari;
         }
 
         p{
-            color: $thirdColor;
+            color: $secundari;
         }
         div{
             height: 48px;
@@ -182,7 +185,7 @@ html {
         img{
             height: 130px;
             width: 130px;
-            align: center;
+            object-fit: cover;
             border-radius: 50%;
             margin-bottom: 14px; 
         }

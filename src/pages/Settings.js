@@ -14,28 +14,30 @@ class Settings extends Component {
 
     render() {
         return (
-            <div>
-                <section className='settings-header'>
-                    <Link to='/private'>
+            <>
+            <div className='padding-for-clouse'>
+                <Link to='/private' className='clouse-nav'>
                     <div className='clouse-bar'>
                             <h2 className='principal-title'>Settings</h2>
-                            <Clouse fill='#43B28A'/>
+                            <Clouse fill='#43B28A' id='clouseCruz'/>
                     </div>
-                    </Link>
-                </section>
-                <div>
+                </Link>
+            </div>
+            <div className='settings-zone'> 
+                <div className='settings-item-zone'>
                     <Link to='/updateProfile'>Update profile</Link>
                 </div>
-                <div>
-                    <Link>Change club</Link>
-                </div>
-                <div>
+                <div className='settings-item-zone'>
                     <Link>About Gloria</Link>
                 </div>
+                <div>
+                    
+                </div>
+            </div>
                 <div className='logout' onClick={this.destroySesion}>
                     <p>Logout</p>
                 </div>
-            </div>
+            </>
         )
     }
 }
